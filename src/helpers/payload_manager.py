@@ -2,12 +2,15 @@
 # Create Booking
 # Update Booking
 # Auth
+from dotenv import load_dotenv
+import os
+
 
 # Create booking payload
 def payload_create_booking():
     payload = {
-        "firstname": "John",
-        "lastname": "Brown",
+        "firstname": "Pony",
+        "lastname": "Brownie",
         "totalprice": 111,
         "depositpaid": True,
         "bookingdates": {
@@ -23,7 +26,7 @@ def payload_create_booking():
 
 def payload_update_booking():
     payload = {
-        "firstname": "John",
+        "firstname": "Joy",
         "lastname": "Brown",
         "totalprice": 111,
         "depositpaid": True,
@@ -36,10 +39,19 @@ def payload_update_booking():
     return payload
 
 
-# Create token paylaod.username amd password can be repalced  by env variable file(will rewrite later)
-def payload_create_token():
+# Update booking -patch request payload
+def payload_update_booking_patch():
     payload = {
-        "username": "admin",
-        "password": "password123"
+        "firstname": "James",
+        "lastname": "Brown"
+    }
+    return payload
+
+# Create token payload.username amd password can be repalced  by env variable file(will rewrite later)
+def payload_create_token():
+    load_dotenv()
+    payload = {
+        "username": os.getenv("USER_NAME"),
+        "password": os.getenv("PASSWORD")
     }
     return payload

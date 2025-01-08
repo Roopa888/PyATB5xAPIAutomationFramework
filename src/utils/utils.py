@@ -20,9 +20,11 @@ class Utils(object):
             "Contet-Type": "application/json",
             "Authorisation": "Basic" + str(basic_auth_value)
         }
+        return headers
 
     def put_patch_delete_cookie(self, token):
         headers = {
             "Content-Type": "application/json",
             "Cookie": "token=" + str(token)
         }
+        return headers
