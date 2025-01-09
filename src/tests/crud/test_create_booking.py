@@ -29,8 +29,8 @@ class TestCreateBooking(object):
         LOGGER.info("POST request Done")
         LOGGER.info("Now verifying")
         verify_HTTP_status_code(response_data=response,expected_status_code=200)
-        LOGGER.info(response.json())
-        LOGGER.info("Booking Id is --",response.json()["bookingid"])
+        LOGGER.info(str(response.json()))
+        LOGGER.info(f'"Booking Id is --{response.json()["bookingid"]}')
         verify_json_key_not_null(response.json()["bookingid"])
         verify_json_key_gr_zero(response.json()["bookingid"])
 
